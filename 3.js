@@ -7,7 +7,7 @@ What is the largest prime factor of the number 600851475143 ?
 var getLargetPrimeFactor = function(max) {
 	var sieve = [],
 		largestPrimeFactor,
-		sqrtOfMax = Math.ceil(Math.sqrt(max));
+		sqrtOfMax = Math.sqrt(max);
 
 	// Loop through all potential prime factors, which must be less than the square root
 	for (var i = 3; i < sqrtOfMax; i += 2) {
