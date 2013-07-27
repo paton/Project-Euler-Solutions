@@ -10,12 +10,14 @@ var isPalindrome = function(num) {
   return num === reverseNum;
 }
 
-var check;
+var check,
+    largestPalindrome = 1;
+
 for (var i = 100; i < 1000; i++) {
   for (j = 100; j < 1000; j++) {
     check = i * j;
-    if (isPalindrome(check)) {
-      console.log(check)
-    }
+    if (check > largestPalindrome && isPalindrome(check)) largestPalindrome = check;
   }
 }
+
+console.log(largestPalindrome)
