@@ -40,3 +40,4 @@ var findLCMOfSet = function(min, max) {
 
 var leastCommonMultiple = findLCMOfSet(1, 20);
 console.log(leastCommonMultiple);
+// 232792560
