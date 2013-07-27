@@ -24,3 +24,20 @@ var sumOfPrimesBelowNum = function(max) {
 var sum = sumOfPrimesBelowNum(2000000);
 console.log(sum);
 // 142913828922
+
+
+
+
+var factorial = function(num, product) {
+  if (!product) product = 1;
+  if (num < 2) return product;
+  product *= num;
+  num--;
+  return factorial(num, product);
+}
+
+console.log(factorial(5))
+
+
+
+
