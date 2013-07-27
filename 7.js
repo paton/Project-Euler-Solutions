@@ -6,7 +6,7 @@ What is the 10 001st prime number?
 
 var approximateNthPrime = function(nth) {
   var approx = nth * Math.log(nth);
-  var overshoot = nth * Math.log(Math.log(nth))
+  var overshoot = nth * Math.log(Math.log(nth));
   return approx + overshoot;
 }
 
@@ -28,8 +28,6 @@ var getNthPrime = function(nth) {
 
     i++;
   }
-
-  console.log(primes)
 
   return primes[nth - 1];
 }
