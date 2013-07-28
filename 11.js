@@ -39,7 +39,6 @@ var createMatrixFromNumbers = function(numbers, x, y) {
     }
   }
 
-console.log(matrix)
   return matrix;
 }
 
