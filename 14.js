@@ -18,7 +18,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 var linksInCollatzChainRecursive = function(num, links) {
   if (num === 1) return links;
   links = links || 1;
-  links ++;
+  links++;
 
   if (num % 2 === 0) 
     return linksInCollatzChain(num / 2, links);
