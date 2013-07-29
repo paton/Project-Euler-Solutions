@@ -14,7 +14,7 @@ Which starting number, under one million, produces the longest chain?
 NOTE: Once the chain starts the terms are allowed to go above one million.
 */
 
-
+// First attempt, very slow
 var linksInCollatzChainRecursive = function(num, links) {
   if (num === 1) return links;
   links = links || 1;
@@ -26,7 +26,7 @@ var linksInCollatzChainRecursive = function(num, links) {
     return linksInCollatzChain((3 * num + 1), links); 
 }
 
-// Iterative is MUCH faster
+// Second attempt. Iterative is much faster
 var linksInCollatzChainIterative = function(num) {
   var links = 1;
 
