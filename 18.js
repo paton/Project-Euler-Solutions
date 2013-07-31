@@ -31,7 +31,11 @@ NOTE: As there are only 16384 routes, it is possible to solve this problem by tr
 
 */
 
-// Solve using a 
+
+
+// Uses a dynamic programming approach, but there's a bug somewhere in the 
+// findPathWithGreatestSum function that causes the recursive method
+// to be called way too many times. The correct solution is still found.
 
 function Tree() {};
 Tree.prototype = {
@@ -45,7 +49,7 @@ Tree.prototype.constructTree = function(data) {
 
   // Create head
   this.head = {
-    data: data[0][0],
+    data: parseInt(data[0][0],10),
     x: 0,
     y: 0,
     next1: null,
@@ -110,30 +114,35 @@ tree = tree.constructTree(data)
 
 
 var findPathWithGreatestSum = function(node) {
-  if (this.head) node = this.head;
-  if (!node.next1 && !node.next2) return node.data;
+  if (node.head) node = node.head;
+  if (!node.next1 && !node.next2 || node.calculated) return node.data;
 
-  var node1Val = node.next1 ? node.next1.data : 0,
-      node2Val = node.next2 ? node.next2.data : 0;
+  var node1Val = 0,
+      node2Val = 0;
 
+  node.calculated = true;
 
+  if (node.next1)
+    node1Val = node.next1.calculated ? node.next1.data : findPathWithGreatestSum(node.next1);
 
-  if (node1Val > node2Val) {
-    return findPathWithGreatestSum(node.next1) + node.next1.data;
-  } else {
-    return findPathWithGreatestSum(node.next2) + node.next2.data;    
-  }
+  if (node.next2)
+    node2Val = node.next2.calculated ? node.next2.data : findPathWithGreatestSum(node.next2);
+
+  if (node1Val > node2Val)
+    node.data += node1Val;
+  else
+    node.data += node2Val;
+
+  window.runs++;
+
+  return node.data;
 }
 
-console.log(findPathWithGreatestSum(tree))
+console.log(tree)
 
-
-
-
-
-
-
-
+window.runs = 0;
+console.log(findPathWithGreatestSum(tree));
+// 1074
 
 
 
