@@ -17,27 +17,18 @@ fs.readFile('data/names.txt', 'utf-8', function (err,data) {
 
   var names = data.toString().replace(/\"/g, '').split(',');
   console.log(findNameScore(names));
+  // 871198282
 });
 
 
 var findNameScore = function(names) {
-  var alphabet = {
-    A: 1, B: 2, C: 3, D: 4,
-    E: 5, F: 6, G: 7, H: 8, 
-    I: 9, J: 10, K: 11, L: 12, 
-    M: 13, N: 14, O: 15, P: 16, 
-    Q: 17, R: 18, S: 19, T: 20,
-    U: 21, V: 22, W: 23, X: 24,
-    Y: 25, Z: 26
-  };
-
   names.sort();
 
   var nameSum, scoreSum = 0;
   for (var i = 0; i < names.length; i++) {
     nameSum = 0;
     for (var j = 0; j < names[i].length; j++)
-      nameSum += alphabet[names[i][j]];
+      nameSum += names[i][j].charCodeAt() - 64;
     scoreSum += nameSum * (i + 1);
   }
 
