@@ -36,10 +36,8 @@ var findNameScore = function(names) {
   var nameSum, scoreSum = 0;
   for (var i = 0; i < names.length; i++) {
     nameSum = 0;
-    for (var j = 0; j < names[i].length; j++){
+    for (var j = 0; j < names[i].length; j++)
       nameSum += alphabet[names[i][j]];
-    }
-    if (names[i] === 'COLIN') console.log(nameSum * (i + 1))
     scoreSum += nameSum * (i + 1);
   }
 
