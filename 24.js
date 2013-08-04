@@ -27,6 +27,7 @@ var findMillionthPermutation = function(digits) {
     stepsNeeded = 0;
     permsAvailable = currentFactorial;
 
+    // Find lowest possible digit for this position
     while (permsAvailable < permutationsNeeded) {
       permsAvailable += currentFactorial;
       stepsNeeded++;
@@ -41,12 +42,12 @@ var findMillionthPermutation = function(digits) {
   }
 
 
-
-  return result;
+  result.push(digits[0]);
+  return result.join('');
 };
 
 console.log(findMillionthPermutation('0123456789'));
-
+// 2783915460
 
 
 
